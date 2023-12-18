@@ -24,8 +24,7 @@ login_manager.init_app(app)
    
 userProfile=0
 userId=0
-uri = "mongodb+srv://nijanthanvp:1778n2001@cluster0.m1v7uio.mongodb.net/?retryWrites=true&w=majority&tlsCAFile=isrgrootx1.pem"
-client = MongoClient(uri, server_api=ServerApi('1'))
+client = pymongo.MongoClient("mongodb://localhost:27017")
 db=client["flipkart"]
 
 class user_register():
