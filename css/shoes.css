@@ -1,0 +1,290 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #f2eeee;
+}
+
+/* /////////////////section-nav-starts////////// */
+
+.section-nav {
+  top: 0;
+  position: fixed;
+}
+
+.user-account {
+  background-color: #000000c7;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+}
+.user-account p {
+  color: #fff !important;
+}
+
+.nav-left {
+  width: 15%;
+}
+.nav-left img {
+  width: 55%;
+}
+
+.nav-middle img {
+  width: 20px;
+  transform: translateX(-30px);
+  /* height: 10px; */
+}
+
+.nav-middle input {
+  border: none;
+  font-size: 16px;
+  width: 400px;
+  transform: translateX(-25px);
+  background-color: rgba(186, 194, 194, 0.036);
+}
+
+.nav-middle {
+  display: flex;
+  border-radius: 6px;
+  width: 40%;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(186, 194, 194, 0.262);
+  margin-left: -50px;
+}
+
+.nav-right {
+  display: flex;
+  gap: 15px;
+  margin-right: 100px;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-right img {
+  width: 25%;
+}
+
+.img-box {
+  width: 13% !important;
+}
+
+.nav-right div a p {
+  font-size: 16px;
+  font-family: sans-serif;
+  color: #000;
+}
+
+.nav-right div a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.nav-right div a {
+  text-decoration: none;
+}
+
+nav {
+  display: flex;
+  width: 100%;
+  margin: 0 auto;
+  background-color: #fff;
+  text-align: center;
+  justify-content: space-between;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.nav-hr {
+  height: 12px;
+  width: 100vw;
+  background-color: #f2eeee;
+  border: none;
+}
+
+.userProfile {
+  display: inline-block;
+  background-color: rgba(38, 37, 37, 0.932);
+  border-radius: 50%;
+  text-decoration: none;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  cursor: pointer;
+}
+.userProfile p {
+  cursor: pointer;
+  color: #fff !important;
+}
+.userProfile-2 {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.profile {
+  width: 32px;
+  height: 32px;
+  background-color: rgb(105, 104, 104);
+  border-radius: 50%;
+}
+.signup-icon {
+  margin-right: 0 !important;
+}
+.signup p {
+  display: inline;
+  margin-left: -4px;
+  font-size: 14px;
+  color: #000;
+}
+
+.account-details {
+  position: absolute;
+  top: 66px;
+  right: 10px;
+  background-color: #fff;
+  width: 220px;
+  height: 250px;
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.44) 0px 3px 8px;
+  transition: all 0.2s;
+  font-family: sans-serif;
+}
+.account-details a:nth-child(1) {
+  margin-top: 14px;
+  width: 40px;
+  height: 40px;
+}
+
+.userProfile-2 {
+  margin-bottom: 30px;
+}
+
+.add-account,
+.remove-account {
+  /* padding: 0 40px; */
+  padding-left: 20px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  margin-bottom: 14px !important;
+  text-decoration: none !important;
+
+  /* justify-content: center; */
+}
+.add-account p,
+.remove-account p {
+  margin-bottom: 0;
+  margin-left: 10px;
+  font-size: 16px;
+  color: #000;
+}
+
+.add-account-icon,
+.remove-account-icon {
+  width: 22px !important;
+}
+.logout {
+  margin-left: -54px;
+  color: #000;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.hide-logout {
+  display: none;
+}
+
+/* /////////////////section-nav-ends////////// */
+
+/* /////////////////section-container-starts////////// */
+
+.section-container {
+  margin-top: 70px;
+  padding-top: 8px;
+}
+
+.container {
+  font-family: sans-serif;
+  display: grid;
+  grid-template-columns: repeat(5, 255px);
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  background-color: #fff;
+  padding: 10px 10px;
+}
+
+.container a {
+  text-decoration: none;
+  color: #000;
+}
+.content {
+  height: 420px;
+}
+.product-details {
+  padding: 10px 10px;
+  line-height: 20px;
+}
+
+.product-img {
+  width: 255px;
+  height: 306px;
+}
+.product-name {
+  font-family: "Roboto", sans-serif;
+  color: #646262;
+  font-size: 14px;
+}
+.product-desc {
+  font-size: 13px;
+}
+.desc-flex {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.assured-img {
+  width: 25%;
+}
+.product-price {
+  display: flex;
+  gap: 5px;
+  font-family: "Robot", sans-serif;
+}
+.product-price p:first-child {
+  font-weight: 500;
+  font-size: 14px;
+}
+.product-price p:nth-child(2) {
+  font-size: 13px;
+  color: #646262;
+  text-decoration: line-through;
+}
+.product-offer {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(0, 132, 0, 0.752);
+}
+.deal {
+  font-size: 11px;
+  font-weight: bold;
+  color: rgba(47, 16, 170, 0.623);
+}
+
+.sizes {
+  color: #000000e1;
+  font-size: 13px;
+}
+
+.sizes span {
+  font-size: 13px;
+  color: #646262;
+  margin-right: 5px;
+}
+
+/* /////////////////section-container-ends////////// */

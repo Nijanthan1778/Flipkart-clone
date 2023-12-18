@@ -1,0 +1,363 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #f2eeee;
+}
+
+/* /////////////////section-nav-starts////////// */
+
+.section-nav {
+  top: 0;
+  position: fixed;
+  z-index: 20;
+}
+
+.user-account {
+  background-color: #000000c7;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+}
+.user-account p {
+  color: #fff !important;
+}
+
+.nav-left {
+  width: 15%;
+}
+.nav-left img {
+  width: 55%;
+}
+
+.nav-middle img {
+  width: 20px;
+  transform: translateX(-30px);
+  /* height: 10px; */
+}
+
+.nav-middle input {
+  border: none;
+  font-size: 16px;
+  width: 400px;
+  transform: translateX(-25px);
+  background-color: rgba(186, 194, 194, 0.036);
+}
+
+.nav-middle {
+  display: flex;
+  border-radius: 6px;
+  width: 40%;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(186, 194, 194, 0.262);
+  margin-left: -50px;
+}
+
+.nav-right {
+  display: flex;
+  gap: 15px;
+  margin-right: 100px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.nav-right div a img {
+  width: 25%;
+}
+
+.img-box {
+  width: 13% !important;
+}
+
+.nav-right div a p {
+  font-size: 16px;
+  font-family: sans-serif;
+  color: #000;
+}
+.nav-right div a {
+  text-decoration: none;
+}
+
+.nav-right div a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+nav {
+  display: flex;
+  width: 100%;
+  margin: 0 auto;
+  background-color: #fff;
+  text-align: center;
+  justify-content: space-between;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.nav-hr {
+  height: 12px;
+  width: 100vw;
+  background-color: #f2eeee;
+  border: none;
+}
+
+.userProfile {
+  display: inline-block;
+  background-color: rgba(38, 37, 37, 0.932);
+  border-radius: 50%;
+  text-decoration: none;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  cursor: pointer;
+}
+.userProfile p {
+  cursor: pointer;
+  color: #fff;
+  margin-top: 2px;
+  margin-right: 1px;
+}
+
+.profile {
+  width: 32px;
+  height: 32px;
+  background-color: rgb(105, 104, 104);
+  border-radius: 50%;
+}
+.signup-icon {
+  margin-right: 0 !important;
+}
+.signup p {
+  display: inline;
+  margin-left: -4px;
+  font-size: 14px;
+  color: #000;
+}
+
+.account-details {
+  position: absolute;
+  top: 66px;
+  right: 10px;
+  background-color: #fff;
+  width: 220px;
+  height: 250px;
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.44) 0px 3px 8px;
+  transition: all 0.2s;
+  font-family: sans-serif;
+}
+.account-details a:nth-child(1) {
+  margin-top: 14px;
+  width: 40px;
+  height: 40px;
+}
+
+.userProfile-2 p {
+  padding-top: 8px;
+}
+.userProfile-2 {
+  margin-bottom: 30px;
+}
+
+.add-account,
+.remove-account {
+  /* padding: 0 40px; */
+  padding-left: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 14px;
+  text-decoration: none;
+
+  /* justify-content: center; */
+}
+.add-account p,
+.remove-account p {
+  margin-bottom: 0;
+  margin-left: 10px;
+  font-size: 16px;
+  color: #000;
+}
+
+.add-account-icon,
+.remove-account-icon {
+  width: 22px;
+}
+.logout {
+  margin-left: -66px;
+  color: #000;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.hide-logout {
+  display: none;
+}
+
+/* /////////////section-nav-ends///////// */
+
+/* //////////////sectin-banner-starts/////// */
+
+.section-banner {
+  width: 100%;
+  padding: 0 16px;
+  margin-bottom: 255px;
+  margin-top: -180px;
+}
+.section-banner img {
+  width: 100%;
+}
+.slider {
+  position: relative;
+}
+.slider img {
+  position: absolute;
+}
+
+/* //////////////sectin-banner-ends/////// */
+
+/* //////////////sectin-content-starts/////// */
+
+.mobiles-content {
+  transform: translatey(240px);
+  margin-bottom: 260px;
+}
+
+.section-content {
+  background-color: #fff;
+  padding: 20px 0;
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+.section-content p {
+  margin-bottom: 20px;
+  margin-left: 10px;
+  font-family: sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.content-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.content-item {
+  width: 13%;
+  height: 200px;
+  text-align: center;
+  border: 1px solid #00000031;
+  border-radius: 5px;
+  text-decoration: none;
+}
+.content-item img {
+  margin-top: 10px;
+  width: 65%;
+  height: 148px;
+}
+.content-item p {
+  margin-top: 10px;
+  font-family: sans-serif;
+  font-size: 14px;
+  color: #000000ab;
+}
+
+#motorola {
+  width: 55%;
+}
+
+/* //////////////sectin-content-ends/////// */
+
+/* //////////////sectin-offers-starts/////// */
+
+.offers img {
+  width: 32%;
+}
+.offers {
+  display: flex;
+  gap: 12.5px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 16px;
+}
+
+/* //////////////sectin-offers-ends/////// */
+
+/* //////////////sectin-featured-brands-starts/////// */
+
+.section-featured-brands {
+  background-color: #fff;
+  margin: 20px 15px;
+  padding: 20px 0;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.featured-brand-content {
+  /* width: 1330px; */
+  position: relative;
+  /* padding: 0px 20px; */
+}
+
+.featured-brand-content {
+  /* position: absolute; */
+  display: flex;
+  /* transform: translateX(-76%); */
+  transition: all 1s;
+}
+.button-left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 30px;
+  height: 50px;
+  background-color: #fff;
+  top: 40%;
+  border-radius: 4px;
+  z-index: 10;
+  font-size: 20px;
+  font-weight: bold;
+}
+.button-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 30px;
+  height: 50px;
+  background-color: #fff;
+  top: 40%;
+  border-radius: 4px;
+  z-index: 10;
+  right: 0;
+  font-size: 20px;
+  font-weight: bold;
+}
+/* .featured-brand-content::before {
+  content: "";
+} */
+
+/* .featured-brand-content::after {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 50px;
+  background-color: #fff;
+  top: 40%;
+  right: 0;
+  border-radius: 4px;
+  z-index: 10;
+} */
+
+/* //////////////sectin-featured-brands-ends/////// */
