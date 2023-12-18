@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/css/login.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Rubik:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <section class="section-nav">
+      <nav>
+        <div class="nav-left">
+          <img src="/static/images/nav/flipkart-logo.png" alt="" />
+        </div>
+        <div class="nav-middle">
+          <img src="/static/images/nav/search.png" alt="" />
+          <input type="text" placeholder="Search for product,brands and more" />
+        </div>
+        <div class="nav-right">
+          <div>
+            <a href="">
+              <img class="img-box" src="/static/images/nav/box.png" alt="" />
+              <p>Become a Seller</p>
+            </a>
+          </div>
+          <div>
+            <a href="{{url_for('addtocart',category='?',id='?')}}">
+              <img src="/static/images/nav/cart.png" alt="" />
+              <p>Cart</p>
+            </a>
+          </div>
+          <div>
+            {%if userProfile%}
+            <a class="user-account" href=""><p>{{userProfile}}</p></a>
+            {%else%}
+            <a href="{{url_for('login')}}">
+              <img src="/static/images/nav/account.png" alt="" />
+              <p>Sign in</p>
+            </a>
+            {%endif%}
+          </div>
+          <div class="account-details hide-logout">
+            <a class="userProfile userProfile-2"><p>{{userProfile}}</p></a>
+            <br />
+            <a class="add-account" href="{{url_for('login')}}"
+              ><img
+                class="add-account-icon"
+                src="/static/images/add-account-icon.png"
+                alt=""
+              />
+              <p>Use another account</p></a
+            >
+            <a class="remove-account" href="{{url_for('removeAccount')}}"
+              ><img
+                class="remove-account-icon"
+                src="/static/images/remove-account-icon.png"
+                alt=""
+              />
+              <p>Remove account</p></a
+            >
+            <a href="{{url_for('logout')}}" class="logout">Logout</a>
+          </div>
+        </div>
+      </nav>
+      <hr class="nav-hr" />
+    </section>
+
+    <div class="container">
+      <div class="left-content">
+        <div class="content">
+          <p class="head">Login</p>
+          <p class="sub-head">
+            Let access to your Orders, Wishlist and Recommendations
+          </p>
+          <img src="/static/images/login-image.png" alt="" />
+        </div>
+      </div>
+
+      <div class="right-content">
+        <form method="post">
+          {{form.csrf_token}} <br />
+          {{form.mobile_no(placeholder="Enter your Mobile No")}}<br />
+          {{form.password(placeholder="Enter your password")}}<br />
+          {{form.submit(class="submit")}}
+        </form>
+        <a class="signup" href="{{url_for('signup')}}"
+          >New to Flipkart? create new account</a
+        >
+      </div>
+    </div>
+  </body>
+  <script>
+    const accountDetails = document.querySelector(".account-details");
+    const userAccount = document.querySelector(".user-account");
+
+    userAccount.addEventListener("click", function (e) {
+      e.preventDefault();
+      accountDetails.classList.toggle("hide-logout");
+    });
+  </script>
+</html>

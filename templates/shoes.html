@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/shoes.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Rubik:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <section class="section-nav">
+      <nav>
+        <div class="nav-left">
+          <img src="/static/images/nav/flipkart-logo.png" alt="" />
+        </div>
+        <div class="nav-middle">
+          <img src="/static/images/nav/search.png" alt="" />
+          <input type="text" placeholder="Search for product,brands and more" />
+        </div>
+        <div class="nav-right">
+          <div>
+            <a href="">
+              <img class="img-box" src="/static/images/nav/box.png" alt="" />
+              <p>Become a Seller</p>
+            </a>
+          </div>
+          <div>
+            <a href="{{url_for('addtocart',category='?',id='?')}}">
+              <img src="/static/images/nav/cart.png" alt="" />
+              <p>Cart</p>
+            </a>
+          </div>
+          <div>
+            {%if userProfile%}
+            <a class="user-account" href=""><p>{{userProfile}}</p></a>
+            {%else%}
+            <a href="{{url_for('login')}}">
+              <img src="/static/images/nav/account.png" alt="" />
+              <p>Sign in</p>
+            </a>
+            {%endif%}
+          </div>
+          <div class="account-details hide-logout">
+            <a class="userProfile userProfile-2"><p>{{userProfile}}</p></a>
+            <br />
+            <a class="add-account" href="{{url_for('login')}}"
+              ><img
+                class="add-account-icon"
+                src="/static/images/add-account-icon.png"
+                alt=""
+              />
+              <p>Use another account</p></a
+            >
+            <a class="remove-account" href="{{url_for('removeAccount')}}"
+              ><img
+                class="remove-account-icon"
+                src="/static/images/remove-account-icon.png"
+                alt=""
+              />
+              <p>Remove account</p></a
+            >
+            <a href="{{url_for('logout')}}" class="logout">Logout</a>
+          </div>
+        </div>
+      </nav>
+      <hr class="nav-hr" />
+    </section>
+    <section class="section-container">
+      <div class="container">
+        {%for i in d2%}
+        <a href="{{url_for('home2',category=i.Category,id=i._id)}}"
+          ><div class="content">
+            <img
+              src="/static/images/shoes/{{i.ProductImage}}"
+              class="product-img"
+              alt=""
+            />
+            <div class="product-details">
+              <p class="product-name">{{i.ProductName}}</p>
+              <div class="desc-flex">
+                <p class="product-desc">{{i.Description}}</p>
+                <img
+                  class="assured-img"
+                  src="/static/images/assured.png"
+                  alt=""
+                />
+              </div>
+              <div class="product-price">
+                <p>&#8377;{{i.Price}}</p>
+                <p>3,799</p>
+                <p class="product-offer">53% offer</p>
+              </div>
+              <p class="deal">Big Saving Deal</p>
+              <p class="sizes"><span>sizes</span>6,8,9,10,11</p>
+            </div>
+          </div>
+        </a>
+
+        {%endfor%} {%for i in d%}
+        <a href="{{url_for('home2',category=i.Category,id=i._id)}}"
+          ><div class="content">
+            <img
+              src="/static/images/shoes/{{i.ProductImage}}"
+              class="product-img"
+              alt=""
+            />
+            <div class="product-details">
+              <p class="product-name">{{i.ProductName}}</p>
+              <div class="desc-flex">
+                <p class="product-desc">{{i.Description}}</p>
+                <img
+                  class="assured-img"
+                  src="/static/images/assured.png"
+                  alt=""
+                />
+              </div>
+              <div class="product-price">
+                <p>&#8377;{{i.Price}}</p>
+                <p>3,799</p>
+                <p class="product-offer">53% offer</p>
+              </div>
+              <p class="deal">Big Saving Deal</p>
+              <p class="sizes"><span>sizes</span>6,8,9,10,11</p>
+            </div>
+          </div>
+        </a>
+        {%endfor%}
+      </div>
+    </section>
+    <script>
+      const accountDetails = document.querySelector(".account-details");
+      const userAccount = document.querySelector(".user-account");
+
+      userAccount.addEventListener("click", function (e) {
+        e.preventDefault();
+        accountDetails.classList.toggle("hide-logout");
+      });
+    </script>
+  </body>
+</html>

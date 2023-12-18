@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/css/addtocart.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Rubik:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <section class="section-nav">
+      <nav>
+        <div class="nav-left">
+          <img src="/static/images/nav/flipkart-logo.png" alt="" />
+        </div>
+        <div class="nav-middle">
+          <img src="/static/images/nav/search.png" alt="" />
+          <input type="text" placeholder="Search for product,brands and more" />
+        </div>
+        <div class="nav-right">
+          <div>
+            <a href="">
+              <img class="img-box" src="/static/images/nav/box.png" alt="" />
+              <p>Become a Seller</p>
+            </a>
+          </div>
+          <div>
+            <a href="{{url_for('addtocart',category='?',id='?')}}">
+              <img src="/static/images/nav/cart.png" alt="" />
+              <p>Cart</p>
+            </a>
+          </div>
+          <div>
+            {%if userProfile%}
+            <a class="user-account" href=""><p>{{userProfile}}</p></a>
+            {%else%}
+            <a href="{{url_for('login')}}">
+              <img src="/static/images/nav/account.png" alt="" />
+              <p>Sign in</p>
+            </a>
+            {%endif%}
+          </div>
+          <div class="account-details hide-logout">
+            <a class="userProfile userProfile-2"><p>{{userProfile}}</p></a>
+            <br />
+            <a class="add-account" href="{{url_for('login')}}"
+              ><img
+                class="add-account-icon"
+                src="/static/images/add-account-icon.png"
+                alt=""
+              />
+              <p>Use another account</p></a
+            >
+            <a class="remove-account" href="{{url_for('removeAccount')}}"
+              ><img
+                class="remove-account-icon"
+                src="/static/images/remove-account-icon.png"
+                alt=""
+              />
+              <p>Remove account</p></a
+            >
+            <a href="{{url_for('logout')}}" class="logout">Logout</a>
+          </div>
+        </div>
+      </nav>
+      <hr class="nav-hr" />
+    </section>
+    <div class="container">
+      <div class="left-content">
+        {%if d|length==0%}
+        <p>No items in the Cart</p>
+        {%else%} {%for i in d%}
+        <div class="cart-product">
+          <div class="flex">
+            <img
+              class="content-img"
+              src="/static/images/{{i.Category}}/{{i.ProductImage}}"
+              alt=""
+            />
+            <div class="product">
+              <p class="content-name">{{i.ProductName}}</p>
+              <p class="seller">Seller: CLIENTROcean</p>
+              <img class="assured" src="/static/images/assured.png" alt="" />
+              <div class="price">
+                <p>&#8377;25,999</p>
+                <p>&#8377;{{i.Price}}</p>
+                <p>28% Off 3 offers applied</p>
+              </div>
+            </div>
+            <p class="delivery">
+              Delivery by Sat Nov 18 | <span>&#8377;80</span>Free
+            </p>
+          </div>
+          <div class="button">
+            <a href="{{url_for('addtocartminus',category=i.Category,id=i.id)}}"
+              ><button>-</button></a
+            >
+            <p>{{i.No_of_items}}</p>
+            <a href="{{url_for('addtocartplus',category=i.Category,id=i.id)}}"
+              ><button>+</button></a
+            >
+            <a
+              class="remove"
+              href="{{url_for('removeProduct',category=i.Category,id=i.id)}}"
+              >Remove</a
+            >
+          </div>
+          <hr class="cart-hr" />
+        </div>
+        {%endfor%} {%endif%}
+        <div class="place-order">
+          <a href=""><button class="place-order-button">PLACE ORDER</button></a>
+        </div>
+      </div>
+      <div class="right-content">
+        <p class="head">PRICE DETAILS</p>
+        <hr />
+        <div class="details">
+          <div>
+            <p>Price ({{totalProducts}} items)</p>
+            <p>&#8377;{{price}}</p>
+          </div>
+          <div>
+            <p>Discount</p>
+            <p class="Discount">-&#8377;{{discount}}</p>
+          </div>
+          <div>
+            <p>Delivery Charges</p>
+            <p>
+              <span class="strike">&#8377;80</span>
+              <span class="delivery-charges">Free</span>
+            </p>
+          </div>
+          <hr class="head-hr" />
+          <p class="total-amount">Total Amount <span>&#8377;{{total}}</span></p>
+          <hr class="head-hr" />
+          <p class="save">You will save &#8377;{{discount}} on this order</p>
+        </div>
+      </div>
+    </div>
+    <script>
+      const accountDetails = document.querySelector(".account-details");
+      const userAccount = document.querySelector(".user-account");
+
+      userAccount.addEventListener("click", function (e) {
+        e.preventDefault();
+        accountDetails.classList.toggle("hide-logout");
+      });
+    </script>
+  </body>
+</html>
+
+<!-- {%for i in d%}
+    <a href="{{url_for('addtocartminus',category=i.Category,id=i.id)}}">-</a>
+    {{i.No_of_items}}
+    <a href="{{url_for('addtocartplus',category=i.Category,id=i.id)}}">+</a>
+    {%endfor%} -->

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/style.css" />
+  </head>
+  <body>
+    <section class="section-nav">
+      <nav>
+        <div class="nav-left">
+          <img src="/static/images/nav/flipkart-logo.png" alt="" />
+        </div>
+        <div class="nav-middle">
+          <img src="/static/images/nav/search.png" alt="" />
+          <input type="text" placeholder="Search for product,brands and more" />
+        </div>
+        <div class="nav-right">
+          <div>
+            <a href="">
+              <img class="img-box" src="/static/images/nav/box.png" alt="" />
+              <p>Become a Seller</p>
+            </a>
+          </div>
+          <div>
+            <a href="{{url_for('addtocart',category='?',id='?')}}">
+              <img src="/static/images/nav/cart.png" alt="" />
+              <p>Cart</p>
+            </a>
+          </div>
+          <div>
+            {%if userProfile%}
+            <a class="user-account" href=""><p>{{userProfile}}</p></a>
+            {%else%}
+            <a href="{{url_for('login')}}">
+              <img src="/static/images/nav/account.png" alt="" />
+              <p>Sign in</p>
+            </a>
+            {%endif%}
+          </div>
+        </div>
+        <div class="account-details hide-logout">
+          <a class="userProfile userProfile-2"><p>{{userProfile}}</p></a>
+          <br />
+          <a class="add-account" href="{{url_for('login')}}"
+            ><img
+              class="add-account-icon"
+              src="/static/images/add-account-icon.png"
+              alt=""
+            />
+            <p>Use another account</p></a
+          >
+          <a class="remove-account" href="{{url_for('removeAccount')}}"
+            ><img
+              class="remove-account-icon"
+              src="/static/images/remove-account-icon.png"
+              alt=""
+            />
+            <p>Remove account</p></a
+          >
+          <a href="{{url_for('logout')}}" class="logout">Logout</a>
+        </div>
+      </nav>
+      <hr class="nav-hr" />
+    </section>
+    <section class="section-banner">
+      <div class="slider">
+        <img src="/static/images/banner/banner-1.webp" alt="" />
+        <img src="/static/images/banner/banner-2.webp" alt="" />
+        <img src="/static/images/banner/banner-3.webp" alt="" />
+        <img src="/static/images/banner/banner-4.webp" alt="" />
+        <img src="/static/images/banner/banner-5.webp" alt="" />
+      </div>
+    </section>
+
+    <section class="section-content mobiles-content">
+      <p>Best Mobiles</p>
+      <div class="content-container">
+        {%for i in dmobiles%} {%if 7 >= loop.index%}
+        <a href="{{url_for('mobiles',id=i._id)}}" class="content-item">
+          <div>
+            <img src="/static/images/mobiles/{{i.ProductImage}}" alt="" />
+            <p>{{i.ProductName}}</p>
+          </div>
+        </a>
+        {%endif%} {%endfor%}
+      </div>
+    </section>
+    <section class="offers">
+      <img src="/static/images/offers/beds.webp" alt="" />
+      <img src="/static/images/offers/flights.webp" alt="" />
+      <img src="/static/images/offers/fridge.webp" alt="" />
+    </section>
+    <section class="section-content">
+      <p>Top Deal</p>
+      <div class="content-container">
+        {%for i in dshoes%} {%if 7 >= loop.index%}
+        <a href="{{url_for('shoes',id=i._id)}}" class="content-item">
+          <div>
+            <img src="/static/images/shoes/{{i.ProductImage}}" alt="" />
+            <p>{{i.ProductName}}</p>
+          </div>
+        </a>
+        {%endif%} {%endfor%}
+      </div>
+    </section>
+    <section class="section-featured-brands">
+      <div class="button-left">&larr;</div>
+      <div class="button-right">&rarr;</div>
+      <div class="featured-brand-content">
+        <div>
+          <a
+            ><img
+              class="featured-img first"
+              src="/static/images/featured-products/allen-solly.webp"
+              alt=""
+          /></a>
+        </div>
+        <div>
+          <a
+            ><img
+              class="featured-img"
+              src="/static/images/featured-products/bajaj.webp"
+              alt=""
+          /></a>
+        </div>
+        <div>
+          <a
+            ><img
+              class="featured-img"
+              src="/static/images/featured-products/crompton.webp"
+              alt=""
+          /></a>
+        </div>
+        <div>
+          <a
+            ><img
+              class="featured-img"
+              src="/static/images/featured-products/prestige.webp"
+              alt=""
+          /></a>
+        </div>
+        <div>
+          <a
+            ><img
+              class="featured-img"
+              src="/static/images/featured-products/beatxp.webp"
+              alt=""
+          /></a>
+        </div>
+        <div>
+          <a
+            ><img
+              class="featured-img"
+              src="/static/images/featured-products/fastrack-watch.webp"
+              alt=""
+          /></a>
+        </div>
+        <div>
+          <a
+            ><img
+              class="featured-img"
+              src="/static/images/featured-products/fogg.webp"
+              alt=""
+          /></a>
+        </div>
+        <div>
+          <a
+            ><img
+              class="featured-img"
+              src="/static/images/featured-products/jbl.webp"
+              alt=""
+          /></a>
+        </div>
+        <div>
+          <a
+            ><img
+              class="featured-img"
+              src="/static/images/featured-products/prestige.webp"
+              alt=""
+          /></a>
+        </div>
+        <div>
+          <a
+            ><img
+              class="featured-img"
+              src="/static/images/featured-products/campus.webp"
+              alt=""
+          /></a>
+        </div>
+      </div>
+    </section>
+    <section class="offers">
+      <img src="/static/images/offers/furniture.webp" alt="" />
+      <img src="/static/images/offers/kitchen.webp" alt="" />
+      <img src="/static/images/offers/laptops.webp" alt="" />
+    </section>
+    <section class="section-content">
+      <p>Top Deal on Laptpos</p>
+      <div class="content-container">
+        {%for i in dlaptops%} {%if 7>=loop.index%}
+        <a href="{{url_for('laptops',id=i._id)}}" class="content-item">
+          <div>
+            <img src="/static/images/laptops/{{i.ProductImage}}" alt="" />
+            <p>{{i.ProductName}}</p>
+          </div>
+        </a>
+        {%endif%} {%endfor%}
+      </div>
+    </section>
+  </body>
+  <script src="/static/js/script.js"></script>
+</html>

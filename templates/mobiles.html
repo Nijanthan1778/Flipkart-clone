@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/mobiles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Rubik:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <section class="section-nav">
+      <nav>
+        <div class="nav-left">
+          <img src="/static/images/nav/flipkart-logo.png" alt="" />
+        </div>
+        <div class="nav-middle">
+          <img src="/static/images/nav/search.png" alt="" />
+          <input type="text" placeholder="Search for product,brands and more" />
+        </div>
+        <div class="nav-right">
+          <div>
+            <a href="">
+              <img class="img-box" src="/static/images/nav/box.png" alt="" />
+              <p>Become a Seller</p>
+            </a>
+          </div>
+          <div>
+            <a href="{{url_for('addtocart',category='?',id='?')}}">
+              <img src="/static/images/nav/cart.png" alt="" />
+              <p>Cart</p>
+            </a>
+          </div>
+          <div>
+            {%if userProfile%}
+            <a class="user-account" href=""><p>{{userProfile}}</p></a>
+            {%else%}
+            <a href="{{url_for('login')}}">
+              <img src="/static/images/nav/account.png" alt="" />
+              <p>Sign in</p>
+            </a>
+            {%endif%}
+          </div>
+          <div class="account-details hide-logout">
+            <a class="userProfile userProfile-2"><p>{{userProfile}}</p></a>
+            <br />
+            <a class="add-account" href="{{url_for('login')}}"
+              ><img
+                class="add-account-icon"
+                src="/static/images/add-account-icon.png"
+                alt=""
+              />
+              <p>Use another account</p></a
+            >
+            <a class="remove-account" href="{{url_for('removeAccount')}}"
+              ><img
+                class="remove-account-icon"
+                src="/static/images/remove-account-icon.png"
+                alt=""
+              />
+              <p>Remove account</p></a
+            >
+            <a href="{{url_for('logout')}}" class="logout">Logout</a>
+          </div>
+        </div>
+      </nav>
+      <hr class="nav-hr" />
+    </section>
+    <section class="section-container">
+      <div class="contents">
+        {%for i in d2%}
+        <a href="{{url_for('home2',category=i.Category,id=i._id)}}">
+          <div class="content">
+            <img
+              class="content-img"
+              src="/static/images/mobiles/{{i.ProductImage}}"
+              alt=""
+            />
+            <div class="content-details">
+              <p class="content-name">{{i.ProductName}}</p>
+              <div class="rating">
+                <p>4.3 &star;</p>
+                <p>17,629 Ratings & 2,297 Reviews</p>
+              </div>
+              <div class="content-details-2">
+                <li>{{i.RAM}} GB RAM | {{i.ROM}} GB ROM</li>
+                <li>{{i.Sizecm}} cm ({{i.SizeInch}} inch) Full HD + Display</li>
+                <li>64MP (OIS) + 8MP + 2MP | 16MP Front Camera</li>
+                <li>{{i.Battery}} mAh Battery</li>
+                <li>{{i.Processor}} 7 + Gen 2 (4nm) Processor</li>
+                <li>{{i.Description}}</li>
+              </div>
+            </div>
+            <div class="content-price">
+              <p>&#8377;{{i.Price}}</p>
+              <div class="content-price-2">
+                <p>34,999</p>
+                <p>31% off</p>
+              </div>
+              <p>Free delivery</p>
+              <p>Top Discount of the Sale</p>
+              <p>Upto <span>22,000</span> Off on Exchange</p>
+            </div>
+          </div>
+        </a>
+        {%endfor%} {%for i in d%}
+        <a href="{{url_for('home2',category=i.Category,id=i._id)}}">
+          <div class="content">
+            <img
+              class="content-img"
+              src="/static/images/mobiles/{{i.ProductImage}}"
+              alt=""
+            />
+            <div class="content-details">
+              <p class="content-name">{{i.ProductName}}</p>
+              <div class="rating">
+                <p>4.3 &star;</p>
+                <p>17,629 Ratings & 2,297 Reviews</p>
+              </div>
+              <div class="content-details-2">
+                <li>{{i.RAM}} GB RAM | {{i.ROM}} GB ROM</li>
+                <li>{{i.Sizecm}} cm ({{i.SizeInch}} inch) Full HD + Display</li>
+                <li>64MP (OIS) + 8MP + 2MP | 16MP Front Camera</li>
+                <li>{{i.Battery}} mAh Battery</li>
+                <li>{{i.Processor}} 7 + Gen 2 (4nm) Processor</li>
+                <li>{{i.Description}}</li>
+              </div>
+            </div>
+            <div class="content-price">
+              <p>&#8377;{{i.Price}}</p>
+              <div class="content-price-2">
+                <p>34,999</p>
+                <p>31% off</p>
+              </div>
+              <p>Free delivery</p>
+              <p>Top Discount of the Sale</p>
+              <p>Upto <span>22,000</span> Off on Exchange</p>
+            </div>
+          </div>
+        </a>
+        {%endfor%}
+      </div>
+    </section>
+    <script>
+      const accountDetails = document.querySelector(".account-details");
+      const userAccount = document.querySelector(".user-account");
+
+      userAccount.addEventListener("click", function (e) {
+        e.preventDefault();
+        accountDetails.classList.toggle("hide-logout");
+      });
+    </script>
+  </body>
+</html>

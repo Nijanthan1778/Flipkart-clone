@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/home2.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Rubik:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <section class="section-nav">
+      <nav>
+        <div class="nav-left">
+          <img src="/static/images/nav/flipkart-logo.png" alt="" />
+        </div>
+        <div class="nav-middle">
+          <img src="/static/images/nav/search.png" alt="" />
+          <input type="text" placeholder="Search for product,brands and more" />
+        </div>
+        <div class="nav-right">
+          <div>
+            <img class="img-box" src="/static/images/nav/box.png" alt="" />
+            <p>Become a Seller</p>
+          </div>
+          <div>
+            <img src="/static/images/nav/account.png" alt="" />
+            <p>Sign in</p>
+          </div>
+          <div>
+            <img src="/static/images/nav/cart.png" alt="" />
+            <p>Cart</p>
+          </div>
+        </div>
+      </nav>
+      <hr class="nav-hr" />
+    </section>
+    <div class="container">
+      {%for i in d%}
+      <section class="section-img">
+        <div class="img">
+          <img src="/static/images/{{i.Category}}/{{i.ProductImage}}" alt="" />
+        </div>
+        <div class="buttons">
+          <a href="{{url_for('addtocart',category=i.Category,id=i._id)}}"
+            ><button class="addtocart">ADD TO CART</button></a
+          >
+          <a href=""><button class="buynow">BUY NOW</button></a>
+        </div>
+      </section>
+      <section class="section-details">
+        <p class="content-name">{{i.ProductName}}</p>
+        <div class="rating">
+          <p>4.3 &star;</p>
+          <p>17,629 Ratings & 2,297 Reviews</p>
+        </div>
+        <div class="content-price">
+          <p>&#8377;{{i.Price}}</p>
+          <p>&#8377;34,999</p>
+          <p>31% off</p>
+        </div>
+        <div class="avl-offers">
+          <p>Available Offers</p>
+          <ul class="ul-offers">
+            <li>
+              <img src="/static/images/bank-offer.webp" alt="" />
+              <p>
+                <span>Bank Offer</span> 5% Cashback on Flipkart Axis Bank Card
+              </p>
+            </li>
+            <li>
+              <img src="/static/images/bank-offer.webp" alt="" />
+              <p>
+                <span>Special Offer</span> Get extra &#8377;8000 off (price
+                inclusive of cashback/coupon)
+              </p>
+            </li>
+            <li>
+              <img src="/static/images/bank-offer.webp" alt="" />
+              <p>
+                <span>Freebie Offer</span> Spotify Premium -12M at &#8377;699
+              </p>
+            </li>
+            <li>
+              <img src="/static/images/bank-offer.webp" alt="" />
+              <p>
+                <span>Special Price</span> Get extra ₹46000 off (price inclusive
+                of cashback/coupon)
+              </p>
+            </li>
+          </ul>
+        </div>
+        <div class="details2">
+          <div class="delivery">
+            <p class="title">Delivery</p>
+            <div>
+              <input
+                class="input"
+                type="text"
+                placeholder="Enter Delivery Pincode"
+              />
+              <a href="">Check</a>
+              <hr />
+              <p class="date">
+                Delivery by 14 Nov, Tuesday
+                <span class="span">| Free</span>
+              </p>
+              <p class="time">if ordered before 12.02 PM</p>
+            </div>
+          </div>
+          <div class="payment">
+            <p class="title">Easy Paymeny <br />Options</p>
+            <div class="li">
+              <li>No cost EMI starting from &#8377;4,455/month</li>
+              <li>Cash on delivery</li>
+              <li>Net banking & Credit/Debit/ATM card</li>
+            </div>
+          </div>
+          <div class="seller">
+            <p class="title">Seller</p>
+            <div>
+              <a href="">TrueComRetail</a>
+              <div class="li">
+                <li>7 Days Service Center Replacement/Rpair</li>
+                <li>GST invoice available</li>
+              </div>
+            </div>
+          </div>
+          <div class="desc">
+            <p class="title">Description</p>
+            <p>
+              Explore a new range of night photography features on this Samsung
+              Galaxy S22 5G smartphone. You can click stunning images even in
+              low light with the Nightography mode. It is designed with a
+              pro-grade camera which comprises a big pixel sensor that welcomes
+              more light for mind-blowing photography. Built with impressive
+              software and hardware, this phone is a game-changer. With a 120 Hz
+              refresh rate and dynamic AMOLED 2x display, you are going to
+              experience immersive screen time. This phone operates on a
+              Snapdragon 8 Gen 1 processor that delivers quick and hassle- free
+              navigation. This device is protected by Corning Gorilla Glass
+              Victus and has an IP68 waterproof rating.
+            </p>
+          </div>
+        </div>
+      </section>
+      {%endfor%}
+    </div>
+  </body>
+</html>
